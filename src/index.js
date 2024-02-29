@@ -206,12 +206,10 @@ const main = async () => {
     core.info(`coverage: ${coverage}`);
     core.info(`color: ${color}`);
     core.info(`warnings: ${warnings}`);
-    core.info(`warnings: ${summaryReport}`);
+
     core.setOutput('coverage', coverage);
     core.setOutput('color', color);
     core.setOutput('warnings', warnings);
-    core.setOutput('warnings', summaryReport);
-
     core.endGroup();
   }
 

@@ -16799,11 +16799,15 @@ const getSummary = (data) => {
   core.info(`Length? "${parser.resultObject.testsuites.testsuite[0]['$']}"`);
   //core.info(`Length? "${parser.resultObject.testsuites[0]['$']}"`);
 
+  return parser.resultObject.testsuites[0]['$'];
+
+  /*
   if (parser.resultObject.testsuites[0]['$'].value.length === 0) {
     return parser.resultObject.testsuites.testsuite[0]['$'];
   } else {
     return parser.resultObject.testsuites['$'];
   }
+  */
 };
 
 const getTestCases = (data) => {
@@ -18016,12 +18020,10 @@ const main = async () => {
     core.info(`coverage: ${coverage}`);
     core.info(`color: ${color}`);
     core.info(`warnings: ${warnings}`);
-    core.info(`warnings: ${summaryReport}`);
+
     core.setOutput('coverage', coverage);
     core.setOutput('color', color);
     core.setOutput('warnings', warnings);
-    core.setOutput('warnings', summaryReport);
-
     core.endGroup();
   }
 
