@@ -148,7 +148,10 @@ const main = async () => {
     : getCoverageReport(options);
   const { coverage, color, html, warnings } = report;
   const summaryReport = getSummaryReport(options);
-  core.info(`"${summaryReport}"`);
+  core.startGroup(options.covXmlFile);
+  core.info(`color: ${summaryReport}`);
+  core.setOutput('summary', summaryReport);
+  core.endGroup();
 
   if (summaryReport && summaryReport.html) {
     core.setOutput('coverageHtml', summaryReport.html);
