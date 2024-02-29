@@ -41,7 +41,8 @@ const getSummary = (data) => {
     core.warning(`JUnitXml file is not XML or not well-formed`);
     return '';
   }
-  if (parser.resultObject.testsuites.$.length === 0) {
+
+  if (parser.resultObject.testsuites[0]['$'].value.length === 0) {
     return parser.resultObject.testsuites.testsuite[0]['$'];
   } else {
     return parser.resultObject.testsuites['$'];
