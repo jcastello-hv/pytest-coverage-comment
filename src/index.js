@@ -148,6 +148,7 @@ const main = async () => {
     : getCoverageReport(options);
   const { coverage, color, html, warnings } = report;
   const summaryReport = getSummaryReport(options);
+  core.info(`"${summaryReport}"`);
 
   if (summaryReport && summaryReport.html) {
     core.setOutput('coverageHtml', summaryReport.html);
