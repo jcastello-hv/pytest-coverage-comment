@@ -16795,19 +16795,8 @@ const getSummary = (data) => {
     core.warning(`JUnitXml file is not XML or not well-formed`);
     return '';
   }
-  //do a for each and total?
-  core.info(`Length? "${parser.resultObject.testsuites.testsuite[0]['$']}"`);
-  //core.info(`Length? "${parser.resultObject.testsuites[0]['$']}"`);
 
   return parser.resultObject.testsuites[0]['$'];
-
-  /*
-  if (parser.resultObject.testsuites[0]['$'].value.length === 0) {
-    return parser.resultObject.testsuites.testsuite[0]['$'];
-  } else {
-    return parser.resultObject.testsuites['$'];
-  }
-  */
 };
 
 const getTestCases = (data) => {
