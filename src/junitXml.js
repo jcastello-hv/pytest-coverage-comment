@@ -42,8 +42,8 @@ const getSummary = (data) => {
     return '';
   }
   //do a for each and total?
-  core.info(`Length? "${parser.resultObject.testsuites[0]['$'].value.length}"`);
-  core.info(`Length? "${parser.resultObject.testsuites[0]['$']}"`);
+  core.info(`Length? "${parser.resultObject.testsuites.testsuite[0]['$']}"`);
+  //core.info(`Length? "${parser.resultObject.testsuites[0]['$']}"`);
 
   if (parser.resultObject.testsuites[0]['$'].value.length === 0) {
     return parser.resultObject.testsuites.testsuite[0]['$'];
