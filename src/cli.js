@@ -35,7 +35,7 @@ const getPathToFile = (pathToFile) => {
 
 const main = async () => {
   const covFile = './../data/pytest-coverage_4.txt';
-  const xmlFile = './../data/pytest_multiple_suites.xml';
+  const xmlFile = './../data/pytest_1.xml';
   const covXmlFile = './../data/coverage_1.xml';
   const prefix = path.dirname(path.dirname(path.resolve(covFile))) + '/';
   // eslint-disable-next-line
