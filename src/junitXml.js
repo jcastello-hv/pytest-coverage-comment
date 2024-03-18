@@ -41,11 +41,8 @@ const getSummary = (data) => {
     core.warning(`JUnitXml file is not XML or not well-formed`);
     return '';
   }
-  if (parser.resultObject.testsuites.testsuite.length > 1) {
-    return parser.resultObject.testsuites['$'];
-  } else {
-    return parser.resultObject.testsuites.testsuite[0]['$'];
-  }
+
+  return parser.resultObject.testsuites[0]['$'];
 };
 
 const getTestCases = (data) => {
@@ -60,8 +57,13 @@ const getTestCases = (data) => {
     core.warning(`JUnitXml file is not XML or not well-formed`);
     return '';
   }
+  const testcases = [];
 
-  return parser.resultObject.testsuites.testsuite[0].testcase;
+  parser.resultObject.testsuites.forEach((testsuite) => {
+    testcases.concat(testsuite);
+  });
+
+  return testcases.testcase;
 };
 
 const getNotSuccessTest = (options) => {
@@ -76,6 +78,7 @@ const getNotSuccessTest = (options) => {
         return { classname, name };
       };
 
+      // For each suite do this stuff
       const testcases = getTestCases(content);
 
       const failures = testcases.filter((t) => t.failure).map(testCaseToOutput);

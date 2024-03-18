@@ -1,12 +1,10 @@
 name: My Pytest Coverage Comment
 on:
   pull_request:
-  push:
-    branches:
-      - multiple-suites
 permissions:
   contents: read
   pull-requests: write
+  id-token: write
 
 jobs:
   live-test:
@@ -17,10 +15,10 @@ jobs:
 
       - name: Pytest coverage comment
         id: coverageComment
-        uses: MishaKav/pytest-coverage-comment@main
+        uses: jcastello-hv/pytest-coverage-comment@main
         with:
           pytest-coverage-path: ./data/pytest-coverage_4.txt
-          junitxml-path: ./data/pytest_1.xml
+          junitxml-path: ./data/pytest_multiple_suites.xml
 
       - name: Check the output coverage
         run: |
