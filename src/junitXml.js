@@ -78,6 +78,7 @@ const getNotSuccessTest = (options) => {
         return { classname, name };
       };
 
+      // For each suite do this stuff
       const testcases = getTestCases(content);
 
       const failures = testcases.filter((t) => t.failure).map(testCaseToOutput);
