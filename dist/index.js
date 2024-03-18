@@ -16811,8 +16811,13 @@ const getTestCases = (data) => {
     core.warning(`JUnitXml file is not XML or not well-formed`);
     return '';
   }
+  const testcases = [];
 
-  return parser.resultObject.testsuites.testsuite[0].testcase;
+  parser.resultObject.testsuites.forEach((testsuite) => {
+    testcases.concat(testsuite);
+  });
+
+  return testcases.testcase;
 };
 
 const getNotSuccessTest = (options) => {
